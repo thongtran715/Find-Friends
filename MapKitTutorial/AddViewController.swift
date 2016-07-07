@@ -11,6 +11,11 @@ import UIKit
 class AddViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
 
+    @IBAction func datePickerTapped(sender: AnyObject) {
+        DatePickerDialog().show("Let's Schedule the Meeting", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
+            (date) -> Void in
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize.height = 1000

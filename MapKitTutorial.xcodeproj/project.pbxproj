@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426567E11D2DC94C00893DAF /* AddViewController.swift */; };
+		4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */; };
 		42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */; };
 		42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */; };
 		FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		426567E11D2DC94C00893DAF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		FC1E24781C2B10F5009E9908 /* MapKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,7 @@
 		426567E31D2DCCCD00893DAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */,
 				42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */,
 			);
 			name = Model;
@@ -169,6 +172,7 @@
 				426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */,
 				42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */,
 				42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */,
+				4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
