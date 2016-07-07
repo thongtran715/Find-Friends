@@ -160,7 +160,7 @@
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = T9VLEHAC59;
+						DevelopmentTeam = 9S8AQBE8W3;
 					};
 				};
 			};
@@ -374,7 +374,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MapKitTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hsw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThongTran;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -389,7 +389,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MapKitTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hsw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ThongTran;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

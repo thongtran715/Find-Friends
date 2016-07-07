@@ -37,18 +37,15 @@ class AddViewController: UIViewController {
             let state = (selectedPin?.administrativeArea) ?? ""
             let country = (selectedPin?.country) ?? ""
             
-            let alertViewController = UIAlertController(title: "Do you want to mark \(name) as meeting location?", message: "\(streetNumber) \(streetName), \(city), \(state), \(country), \((selectedPin?.country)!) ", preferredStyle: .Alert)
+            let alertViewController = UIAlertController(title: "Do you want to mark this address ?", message: "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country), \((selectedPin?.country)!) ", preferredStyle: .Alert)
             alertViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
             alertViewController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
                 
-                self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \n \(city), \(state), \(country)"
             })
             )
             self.presentViewController(alertViewController, animated: true, completion: nil)
             alertViewController.view.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
         }
-        
-        
     }
     
     
@@ -64,8 +61,7 @@ class AddViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     var handleMapSearchDelegate:HandleMapSearch? = nil
     var  locationManager = CLLocationManager()
-   
-    @IBOutlet weak var addressTextField: UILabel!
+    @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet var topicTextField: UITextField!
     @IBOutlet var dateLabel: UILabel!
@@ -83,6 +79,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize.height = 1000
+        addressTextField.enabled = false
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
