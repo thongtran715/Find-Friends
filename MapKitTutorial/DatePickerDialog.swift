@@ -162,6 +162,7 @@ public class DatePickerDialog: UIView {
         self.titleLabel = UILabel(frame: CGRectMake(10, 10, 280, 30))
         self.titleLabel.textAlignment = NSTextAlignment.Center
         self.titleLabel.font = UIFont.boldSystemFontOfSize(17)
+        self.titleLabel.textColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
         dialogContainer.addSubview(self.titleLabel)
         
         self.datePicker = UIDatePicker(frame: CGRectMake(0, 30, 0, 0))

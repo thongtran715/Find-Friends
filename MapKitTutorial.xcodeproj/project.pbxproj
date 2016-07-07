@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4208DC361D2E41F2001882FA /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208DC351D2E41F2001882FA /* NSDate.swift */; };
 		426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426567E11D2DC94C00893DAF /* AddViewController.swift */; };
 		4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */; };
 		42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4208DC351D2E41F2001882FA /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		426567E11D2DC94C00893DAF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		426567E31D2DCCCD00893DAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
+				4208DC351D2E41F2001882FA /* NSDate.swift */,
 				4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */,
 				42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */,
 			);
@@ -86,7 +90,6 @@
 				FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */,
 				FC1E247F1C2B10F5009E9908 /* Main.storyboard */,
 				42B6E20B1D2DC71400A5E679 /* Controller */,
-				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
 				FC1E24821C2B10F5009E9908 /* Assets.xcassets */,
 				FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */,
 				FC1E24871C2B10F5009E9908 /* Info.plist */,
@@ -173,6 +176,7 @@
 				42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */,
 				42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */,
 				4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */,
+				4208DC361D2E41F2001882FA /* NSDate.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

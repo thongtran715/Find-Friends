@@ -11,9 +11,12 @@ import UIKit
 class AddViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
 
+    @IBOutlet var topicTextField: UITextField!
+    @IBOutlet var dateLabel: UILabel!
     @IBAction func datePickerTapped(sender: AnyObject) {
-        DatePickerDialog().show("Let's Schedule the Meeting", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
+        DatePickerDialog().show("Schedule the Meeting", doneButtonTitle: "Save", cancelButtonTitle: "Cancel", datePickerMode: .DateAndTime) {
             (date) -> Void in
+            self.dateLabel.text = "\(date.convertToString())"
         }
     }
     override func viewDidLoad() {
@@ -25,6 +28,16 @@ class AddViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn (textField: UITextField)->Bool
+    {
+        topicTextField.resignFirstResponder()
+        return true
     }
     
 
