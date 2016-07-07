@@ -361,8 +361,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="kAg-SN-Wdg"/>
-                                        <exclude reference="NXZ-oh-pJC"/>
                                         <exclude reference="D5U-3m-g4F"/>
+                                        <exclude reference="NXZ-oh-pJC"/>
                                         <exclude reference="nyA-xl-Q08"/>
                                         <exclude reference="uUE-Gv-GRJ"/>
                                     </mask>
