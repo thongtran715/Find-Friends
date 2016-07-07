@@ -32,7 +32,6 @@ class ViewController : UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        locationManager.startUpdatingLocation() 
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -46,17 +45,17 @@ class ViewController : UIViewController {
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
         
-//        
-//        var temp: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: -33.952850, longitude: 151.138301)
-//        
-//        let annotation = MyAnnotation(coordinate: temp)
-//        
-//        annotation.title = "test"
-//        
-//      
-//        
-//        mapView.addAnnotation(annotation)
-//        
+        //
+        //        var temp: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: -33.952850, longitude: 151.138301)
+        //
+        //        let annotation = MyAnnotation(coordinate: temp)
+        //
+        //        annotation.title = "test"
+        //
+        //
+        //
+        //        mapView.addAnnotation(annotation)
+        //
         
     }
     
@@ -67,28 +66,28 @@ class ViewController : UIViewController {
             mapItem.openInMapsWithLaunchOptions(launchOptions)
         }
         
-//        
-//        let latitude = -33.952850
-//        let longitude = 151.138301
-//         let  location = CLLocation(latitude: latitude, longitude: longitude)
-//        
-//        
-//        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
-//            
-//            if placemark?.count > 0
-//            {
-//                let pinForAppleMaps = placemark![0] as CLPlacemark
-//
-//                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pinForAppleMaps.location!.coordinate, addressDictionary: pinForAppleMaps.addressDictionary as! [String:AnyObject]?))
-//                
-//                let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-//                mapItem.openInMapsWithLaunchOptions(launchOptions)
-//            
-//            
-//            
-//            }
-//        }
-
+        //
+        //        let latitude = -33.952850
+        //        let longitude = 151.138301
+        //         let  location = CLLocation(latitude: latitude, longitude: longitude)
+        //
+        //
+        //        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+        //
+        //            if placemark?.count > 0
+        //            {
+        //                let pinForAppleMaps = placemark![0] as CLPlacemark
+        //
+        //                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pinForAppleMaps.location!.coordinate, addressDictionary: pinForAppleMaps.addressDictionary as! [String:AnyObject]?))
+        //
+        //                let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        //                mapItem.openInMapsWithLaunchOptions(launchOptions)
+        //
+        //
+        //
+        //            }
+        //        }
+        
         
     }
     
@@ -162,17 +161,17 @@ class ViewController : UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-//    
-//    func displayLocationinfo(placeMark : CLPlacemark)
-//    {
-//        self.locationManager.stopUpdatingLocation()
-//        print(placeMark.administrativeArea!)
-//        print(placeMark.postalCode!)
-//        print(placeMark.country!)
-//        print(placeMark.location?.coordinate.latitude)
-//        print(placeMark.location?.coordinate.longitude)
-//        print(placeMark.locality!)
-//    }
+    //
+    //    func displayLocationinfo(placeMark : CLPlacemark)
+    //    {
+    //        self.locationManager.stopUpdatingLocation()
+    //        print(placeMark.administrativeArea!)
+    //        print(placeMark.postalCode!)
+    //        print(placeMark.country!)
+    //        print(placeMark.location?.coordinate.latitude)
+    //        print(placeMark.location?.coordinate.longitude)
+    //        print(placeMark.locality!)
+    //    }
     
 }
 extension ViewController : CLLocationManagerDelegate {
@@ -184,28 +183,28 @@ extension ViewController : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let UserLocation = locations.first {
-                        let span = MKCoordinateSpanMake(0.05, 0.05)
-                        let region = MKCoordinateRegion(center: UserLocation.coordinate, span: span)
-                        mapView.setRegion(region, animated: true)
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: UserLocation.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
         }
         
-//            //let UserLocation = locations[0]
-//            
-//            let latitude: CLLocationDegrees = UserLocation.coordinate.latitude
-//            let longtitude: CLLocationDegrees = UserLocation.coordinate.longitude
-//            let ladelta: CLLocationDegrees = 1
-//            let lodelta: CLLocationDegrees = 1
-//            
-//            // these 2 must be implemented
-//            let span: MKCoordinateSpan = MKCoordinateSpanMake(ladelta, lodelta)
-//            let coordi : CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
-//            
-//            let region: MKCoordinateRegion = MKCoordinateRegionMake(coordi, span)
-//            
-//            mapView.setRegion(region, animated: true)
-            //
-}
-
+        //            //let UserLocation = locations[0]
+        //
+        //            let latitude: CLLocationDegrees = UserLocation.coordinate.latitude
+        //            let longtitude: CLLocationDegrees = UserLocation.coordinate.longitude
+        //            let ladelta: CLLocationDegrees = 1
+        //            let lodelta: CLLocationDegrees = 1
+        //
+        //            // these 2 must be implemented
+        //            let span: MKCoordinateSpan = MKCoordinateSpanMake(ladelta, lodelta)
+        //            let coordi : CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
+        //
+        //            let region: MKCoordinateRegion = MKCoordinateRegionMake(coordi, span)
+        //
+        //            mapView.setRegion(region, animated: true)
+        //
+    }
+    
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         alert(extendMessage: "Erro", extendTitle: "Can't load location")
@@ -218,13 +217,16 @@ extension ViewController: HandleMapSearch {
         // cache the pin
         selectedPin = placemark
         // clear existing pins
-       //mapView.removeAnnotations(mapView.annotations)
+        mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
         if let city = placemark.locality,
-            let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
+            let state = placemark.administrativeArea,
+            let addressNumber = placemark.subThoroughfare,
+            let street = placemark.thoroughfare
+        {
+            annotation.subtitle = "\(addressNumber) \(street), \(city), \(state)"
         }
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
