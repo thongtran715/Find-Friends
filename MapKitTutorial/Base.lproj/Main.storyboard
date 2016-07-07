@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pyB-JW-l0a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="pyB-JW-l0a">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyB-JW-l0a" id="wCa-0k-Mmg">
@@ -260,6 +260,9 @@
                                         <rect key="frame" x="8" y="76" width="304" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9mF-rx-ZFP" id="7M9-9X-kTn"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEn-Ow-6eb">
                                         <rect key="frame" x="8" y="106" width="50" height="50"/>
@@ -358,8 +361,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="kAg-SN-Wdg"/>
-                                        <exclude reference="NXZ-oh-pJC"/>
                                         <exclude reference="D5U-3m-g4F"/>
+                                        <exclude reference="NXZ-oh-pJC"/>
                                         <exclude reference="nyA-xl-Q08"/>
                                         <exclude reference="uUE-Gv-GRJ"/>
                                     </mask>

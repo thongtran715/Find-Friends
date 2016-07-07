@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4208DC361D2E41F2001882FA /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208DC351D2E41F2001882FA /* NSDate.swift */; };
 		421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BE1281D2EE2710040ACB3 /* Meeting.swift */; };
+		423DF8CE1D2EED62007D4425 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CD1D2EED62007D4425 /* Post.swift */; };
+		423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */; };
 		426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426567E11D2DC94C00893DAF /* AddViewController.swift */; };
 		4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */; };
 		42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		4208DC351D2E41F2001882FA /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		421BE1281D2EE2710040ACB3 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		423DF8CD1D2EED62007D4425 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		426567E11D2DC94C00893DAF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
@@ -66,10 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
+				423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */,
 				421BE1281D2EE2710040ACB3 /* Meeting.swift */,
 				4208DC351D2E41F2001882FA /* NSDate.swift */,
 				4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */,
 				42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */,
+				423DF8CD1D2EED62007D4425 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,12 +257,14 @@
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
 				421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
+				423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */,
 				426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */,
 				42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */,
 				42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */,
 				4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */,
 				4208DC361D2E41F2001882FA /* NSDate.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
+				423DF8CE1D2EED62007D4425 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

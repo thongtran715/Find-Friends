@@ -8,18 +8,28 @@
 
 import UIKit
 import MapKit
+import Parse
 
-
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
     
     
-    
-    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.scrollView.endEditing(true)
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        topicTextField.resignFirstResponder()
+        return true
+    }
     // Button Action
     @IBOutlet weak var doneOutlet: UIBarButtonItem!
     @IBAction func DoneButton(sender: AnyObject) {
         
-        var meeting = ArrangeMeeting(nameOfTopic: topicTextField.text!, date: dateLabel.text! , location: addressTextField.text!)
+      
+        let post = Post()
+        post.name = topicTextField.text
+        post.location = addressTextField.text
+        post.date = dateLabel.text
+        post.uploadFile()
         
     }
     @IBAction func pinAddress(sender: AnyObject) {
@@ -37,9 +47,11 @@ class AddViewController: UIViewController {
             let state = (selectedPin?.administrativeArea) ?? ""
             let country = (selectedPin?.country) ?? ""
             
-            let alertViewController = UIAlertController(title: "Do you want to mark this address ?", message: "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country), \((selectedPin?.country)!) ", preferredStyle: .Alert)
+            let alertViewController = UIAlertController(title: "Do you want to mark \(name) address ?", message: "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country), \((selectedPin?.country)!) ", preferredStyle: .Alert)
             alertViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
             alertViewController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
+                
+                self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country) "
                 
             })
             )
@@ -47,15 +59,7 @@ class AddViewController: UIViewController {
             alertViewController.view.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     // Outlet
     @IBOutlet var scrollView: UIScrollView!
