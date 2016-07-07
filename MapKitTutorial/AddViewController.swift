@@ -12,6 +12,7 @@ import Parse
 
 class AddViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var topicTextField:UITextField!
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.scrollView.endEditing(true)
@@ -52,7 +53,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             alertViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
             alertViewController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
                 
-                self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country) "
+                
+                self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \n \(city), \(state), \(country)"
             })
             )
             self.presentViewController(alertViewController, animated: true, completion: nil)
@@ -70,7 +72,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
    
     @IBOutlet weak var addressTextField: UILabel!
     @IBOutlet weak var searchBarView: UIView!
-    @IBOutlet var topicTextField: UITextField!
+ 
+    
     @IBOutlet var dateLabel: UILabel!
     var selectedPin:MKPlacemark? = nil
     @IBOutlet weak var mapView: MKMapView!
