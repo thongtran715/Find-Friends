@@ -130,9 +130,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VW6-g6-JyT">
                                         <rect key="frame" x="264" y="66" width="50" height="50"/>
                                         <state key="normal" image="calendar"/>
-                                        <connections>
-                                            <segue destination="seJ-S3-peA" kind="presentation" id="Mdq-YR-f1J"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -161,42 +158,6 @@
                 <exit id="LZ8-2T-gSF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1641" y="-281"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Usk-yA-BLd">
-            <objects>
-                <viewController modalPresentationStyle="formSheet" id="seJ-S3-peA" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="upR-ig-2tU"/>
-                        <viewControllerLayoutGuide type="bottom" id="4O0-AE-Y05"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MTF-Lc-AWA">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="er3-H9-wia">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                <gestureRecognizers/>
-                                <date key="date" timeIntervalSinceReferenceDate="489541485.26025701">
-                                    <!--2016-07-06 23:44:45 +0000-->
-                                </date>
-                            </datePicker>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4O0-AE-Y05" firstAttribute="top" secondItem="er3-H9-wia" secondAttribute="bottom" id="3zi-Pa-1zz"/>
-                            <constraint firstItem="er3-H9-wia" firstAttribute="leading" secondItem="MTF-Lc-AWA" secondAttribute="leading" id="Taf-xa-tv1"/>
-                            <constraint firstAttribute="trailing" secondItem="er3-H9-wia" secondAttribute="trailing" id="gtu-HR-GpU"/>
-                            <constraint firstItem="er3-H9-wia" firstAttribute="top" secondItem="MTF-Lc-AWA" secondAttribute="top" id="k61-TK-3CB"/>
-                        </constraints>
-                    </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="300"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QtF-lq-8fR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2007" y="-304"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lPq-SC-ztc">
