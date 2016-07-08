@@ -11,6 +11,7 @@ import Parse
 class MessageTableViewController: UITableViewController {
 
     var posts = [Post]()
+   
     
     
     override func viewDidAppear(animated: Bool) {
@@ -29,7 +30,11 @@ class MessageTableViewController: UITableViewController {
             // 8
             self.posts = result as? [Post] ?? []
             // 9
-            self.tableView.reloadData()
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+          
         }
     }
     
@@ -56,9 +61,28 @@ class MessageTableViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellofNote")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellofNote", forIndexPath: indexPath) as! MessageTableViewCell
+        let row = indexPath.row
+        let fetch = posts[row]
+        let topicData = try! fetch.nameFile?.getData()
+        let dateData = try! fetch.dateFile?.getData()
+        let locationData = try! fetch.locationFile?.getData()
+        let creator = fetch.user?.username
         
-        cell.textLabel!.text = "Post"
+        
+        if row % 2 == 0 {
+            cell.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.5, alpha: 0.1)
+        }else {cell.backgroundColor = UIColor.whiteColor()}
+        
+        tableView.rowHeight = 140
+        
+        if let topicData = topicData {
+            cell.topicLabel.text = String(data: topicData, encoding: NSUTF8StringEncoding)}
+        if let dateData = dateData{
+            cell.dateLabel.text = String(data: dateData, encoding: NSUTF8StringEncoding)}
+        if let locationData = locationData {
+            cell.locationLabel.text = String(data: locationData, encoding: NSUTF8StringEncoding)}
+        cell.creatorLabel.text = "Posted by: \(creator!)"
         
         return cell
     }

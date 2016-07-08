@@ -13,6 +13,7 @@ import Parse
 class AddViewController: UIViewController {
     
     var photoTaking : PhotoTakingHelper?
+    var posts : Post?
     func takePhoto () {
         photoTaking = PhotoTakingHelper(viewCol: self, callBack: { (image) in
             
@@ -30,8 +31,27 @@ class AddViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var topicTextField:UITextField!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+     infoTextView.text = ""
+        
+//        if let posts = posts {
+//            topicTextField.text = posts.name
+//            dateLabel.text = posts.date
+//            addressTextField.text = posts.location
+//        }
+//        else {
+//            topicTextField.text = ""
+//            dateLabel.text = ""
+//            addressTextField.text = ""
+//        }
+        
+    }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
@@ -145,7 +165,7 @@ extension AddViewController : CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        alert(extendMessage: "Erro", extendTitle: "Can't load location. Please Check Your Location Settings")
+        alert(extendMessage: "Error", extendTitle: "Can't load location. Please Check Your Location Settings")
     }
     func alert(extendMessage dataMessage: String, extendTitle dataTitle: String){
         
