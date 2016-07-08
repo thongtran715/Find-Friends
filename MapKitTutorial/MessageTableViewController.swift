@@ -42,7 +42,14 @@ class MessageTableViewController: UITableViewController {
         // we'll add code later
         
     }
-   
+  
+    
+    @IBAction func unwindDoneMessageTableViewController(segue: UIStoryboardSegue) {
+        
+        // for now, simply defining the method is sufficient.
+        // we'll add code later
+        
+    }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

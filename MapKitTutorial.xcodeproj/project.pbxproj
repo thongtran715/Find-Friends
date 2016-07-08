@@ -15,6 +15,7 @@
 		4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */; };
 		42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */; };
 		42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */; };
+		42FC1B181D2F2420001C0666 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FC1B171D2F2420001C0666 /* CollectionViewCell.swift */; };
 		F2B8588D6E4E9C9FFB11729F /* Pods_MapKitTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CD3C67295CDC4BE10F1440 /* Pods_MapKitTutorial.framework */; };
 		FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */; };
 		FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247D1C2B10F5009E9908 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		42FC1B171D2F2420001C0666 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9B9A34E8C9372A8D8C9DEC66 /* Pods-MapKitTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapKitTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapKitTutorial/Pods-MapKitTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		D1CD3C67295CDC4BE10F1440 /* Pods_MapKitTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapKitTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F741BCC77E5C756E7091D0C5 /* Pods-MapKitTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapKitTutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapKitTutorial/Pods-MapKitTutorial.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1E247D1C2B10F5009E9908 /* ViewController.swift */,
+				42FC1B171D2F2420001C0666 /* CollectionViewCell.swift */,
 				42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */,
 				426567E11D2DC94C00893DAF /* AddViewController.swift */,
 			);
@@ -256,6 +259,7 @@
 			files = (
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
 				421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */,
+				42FC1B181D2F2420001C0666 /* CollectionViewCell.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
 				423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */,
 				426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */,

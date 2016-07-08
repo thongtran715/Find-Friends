@@ -10,16 +10,17 @@ import UIKit
 import MapKit
 import Parse
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController {
     
+    
+    var array = [UIImage(named: "Sample.png"), UIImage(named: "sample 1.png"), UIImage(named : "hinh.jpeg"), UIImage(named: "hinh2.jpg")]
+    
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var topicTextField:UITextField!
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.scrollView.endEditing(true)
-    }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        topicTextField.resignFirstResponder()
-        return true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        self.topicTextField.becomeFirstResponder()
     }
     // Button Action
     @IBOutlet weak var doneOutlet: UIBarButtonItem!
@@ -88,7 +89,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize.height = 1000
+          self.collectionView.dataSource = self
+        scrollView.contentSize.height = 10000
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -178,13 +180,43 @@ extension AddViewController : MKMapViewDelegate {
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-        pinView?.pinTintColor = UIColor.orangeColor()
+        pinView?.pinTintColor = UIColor.redColor()  
         pinView?.canShowCallout = true
         return pinView
+    }
+}
+
+extension AddViewController: UITextFieldDelegate {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.topicTextField.resignFirstResponder()
+        return true
     }
 }
 
 
 
 
+
+extension AddViewController: UICollectionViewDataSource{
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return array.count
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionView", forIndexPath: indexPath) as! CollectionViewCell
+        cell.imageView.image = array[indexPath.row]
+        
+        
+        return cell
+        
+        
+    }
+}
 
