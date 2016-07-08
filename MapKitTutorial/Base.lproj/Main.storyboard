@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qXk-YO-NAc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fgq-qt-UBQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -60,17 +61,31 @@
         <scene sceneID="dtl-cT-nC3">
             <objects>
                 <tableViewController id="n6P-We-W2l" customClass="MessageTableViewController" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gH-xJ-cF3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gH-xJ-cF3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="pyB-JW-l0a">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellofNote" rowHeight="75" id="pyB-JW-l0a" customClass="MessageTableViewCell" customModule="MapKitTutorial" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyB-JW-l0a" id="wCa-0k-Mmg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-VC-rcL">
+                                            <rect key="frame" x="16" y="8" width="296" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V8-gJ-nsr">
+                                            <rect key="frame" x="16" y="40" width="296" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -109,31 +124,39 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pw7-1S-voK">
                                 <rect key="frame" x="0.0" y="30" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="XjI-Id-L6H">
+                                    <navigationItem id="XjI-Id-L6H">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6ZG-KD-ssl">
                                             <connections>
                                                 <segue destination="TzC-2j-xeJ" kind="unwind" unwindAction="unwindToMessageTableViewController:" id="QoO-sY-e1A"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Gtr-rg-ofg">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tkp-7e-ro0">
-                                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem style="plain" id="Gtr-rg-ofg">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tkp-7e-ro0">
+                                                    <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Done"/>
+                                                    <connections>
+                                                        <action selector="DoneButton:" destination="qXk-YO-NAc" eventType="touchUpInside" id="7fw-PO-ZVy"/>
+                                                        <segue destination="TzC-2j-xeJ" kind="unwind" unwindAction="unwindDoneMessageTableViewController:" id="k7J-hx-yte"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem image="camera" id="pqp-Ix-qF0">
+                                                <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-5"/>
                                                 <connections>
-                                                    <action selector="DoneButton:" destination="qXk-YO-NAc" eventType="touchUpInside" id="7fw-PO-ZVy"/>
-                                                    <segue destination="TzC-2j-xeJ" kind="unwind" unwindAction="unwindDoneMessageTableViewController:" id="Qnf-l2-chL"/>
+                                                    <action selector="photoButton:" destination="qXk-YO-NAc" id="Kdj-ig-WD2"/>
                                                 </connections>
-                                            </button>
-                                        </barButtonItem>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APT-fH-Ye2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APT-fH-Ye2">
                                 <rect key="frame" x="0.0" y="74" width="320" height="1926"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-eL-0on" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="911.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="912"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic" textAlignment="center" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="a0f-Ta-FVK">
                                                 <rect key="frame" x="8" y="8" width="304" height="30"/>
@@ -192,7 +215,7 @@
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B9z-dP-Vh4"/>
                                                 </items>
                                             </toolbar>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-WN-qhZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-WN-qhZ">
                                                 <rect key="frame" x="8" y="251" width="304" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="5ZX-cF-aKO"/>
@@ -227,7 +250,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hYb-bP-p7x">
-                                                <rect key="frame" x="0.0" y="562" width="320" height="299.5"/>
+                                                <rect key="frame" x="0.0" y="562" width="320" height="300"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="299.5" id="EuS-zM-Gfg"/>
@@ -338,7 +361,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNR-Uk-mds" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TzC-2j-xeJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="429"/>
+            <point key="canvasLocation" x="1698" y="429"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lPq-SC-ztc">
@@ -473,6 +496,7 @@
     </scenes>
     <resources>
         <image name="calendar" width="31" height="31"/>
+        <image name="camera" width="28" height="28"/>
         <image name="map" width="40" height="40"/>
         <image name="meeting" width="43" height="43"/>
         <image name="message" width="43" height="43"/>

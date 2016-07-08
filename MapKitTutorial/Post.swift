@@ -11,7 +11,6 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var locationFile : PFFile?
     @NSManaged var dateFile : PFFile?
     var waitingToUpload: UIBackgroundTaskIdentifier?
-    @NSManaged var image : PFFile?
     var name : String!
     var location: String!
     var date : String!

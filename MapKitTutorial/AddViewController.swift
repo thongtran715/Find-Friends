@@ -12,8 +12,23 @@ import Parse
 
 class AddViewController: UIViewController {
     
+    var photoTaking : PhotoTakingHelper?
+    func takePhoto () {
+        photoTaking = PhotoTakingHelper(viewCol: self, callBack: { (image) in
+            
+            if let image = image {
+            
+                self.arrayOfImages.append(image)
+            }
+            
+        })
+    }
     
-    var array = [UIImage(named: "Sample.png"), UIImage(named: "sample 1.png"), UIImage(named : "hinh.jpeg"), UIImage(named: "hinh2.jpg")]
+    var arrayOfImages = [UIImage]() {
+        didSet {
+           collectionView.reloadData()
+        }
+    }
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var topicTextField:UITextField!
@@ -25,14 +40,23 @@ class AddViewController: UIViewController {
     // Button Action
     @IBOutlet weak var doneOutlet: UIBarButtonItem!
     @IBAction func DoneButton(sender: AnyObject) {
-        
-      
         let post = Post()
         post.name = topicTextField.text
         post.location = addressTextField.text
         post.date = dateLabel.text
         post.uploadFile()
+        for image in arrayOfImages {
+           let imageHolderforPost = imageHolder()
+            imageHolderforPost.getImage = image
+            // adding image pointer to post
+            imageHolderforPost.fromPost = post
+            imageHolderforPost.uploadingPhoto()
         
+        }
+        
+    }
+    @IBAction func photoButton(sender: AnyObject) {
+        takePhoto()
     }
     @IBAction func pinAddress(sender: AnyObject) {
         if selectedPin == nil
@@ -48,18 +72,7 @@ class AddViewController: UIViewController {
             let city = (selectedPin?.locality) ?? ""
             let state = (selectedPin?.administrativeArea) ?? ""
             let country = (selectedPin?.country) ?? ""
-            
-
-            let alertViewController = UIAlertController(title: "Do you want to mark \(name) address ?", message: "\(name), \(streetNumber) \(streetName), \(city), \(state), \(country), \((selectedPin?.country)!) ", preferredStyle: .Alert)
-            alertViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
-            alertViewController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
-                
-                
-                self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \n \(city), \(state), \(country)"
-            })
-            )
-            self.presentViewController(alertViewController, animated: true, completion: nil)
-            alertViewController.view.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
+            self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \n \(city), \(state), \(country)"
         }
         
         
@@ -207,13 +220,11 @@ extension AddViewController: UICollectionViewDataSource{
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return arrayOfImages.count
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionView", forIndexPath: indexPath) as! CollectionViewCell
-        cell.imageView.image = array[indexPath.row]
-        
-        
+        cell.imageView.image = arrayOfImages[indexPath.row]
         return cell
         
         

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4208DC361D2E41F2001882FA /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208DC351D2E41F2001882FA /* NSDate.swift */; };
 		421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BE1281D2EE2710040ACB3 /* Meeting.swift */; };
+		4232C4061D2F4BEF00539BA6 /* ImagesHolderForPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */; };
+		4232C4091D2F59AA00539BA6 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */; };
 		423DF8CE1D2EED62007D4425 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CD1D2EED62007D4425 /* Post.swift */; };
 		423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */; };
 		426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426567E11D2DC94C00893DAF /* AddViewController.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		4208DC351D2E41F2001882FA /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		421BE1281D2EE2710040ACB3 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesHolderForPost.swift; sourceTree = "<group>"; };
+		4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		423DF8CD1D2EED62007D4425 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		426567E11D2DC94C00893DAF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */,
 				42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */,
 				423DF8CD1D2EED62007D4425 /* Post.swift */,
+				4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 				42FC1B171D2F2420001C0666 /* CollectionViewCell.swift */,
 				42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */,
 				426567E11D2DC94C00893DAF /* AddViewController.swift */,
+				4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 				423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */,
 				426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */,
 				42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */,
+				4232C4091D2F59AA00539BA6 /* MessageTableViewCell.swift in Sources */,
+				4232C4061D2F4BEF00539BA6 /* ImagesHolderForPost.swift in Sources */,
 				42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */,
 				4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */,
 				4208DC361D2E41F2001882FA /* NSDate.swift in Sources */,
