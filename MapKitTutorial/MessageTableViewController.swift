@@ -71,6 +71,21 @@ class MessageTableViewController: UITableViewController {
     }
     
     
- 
-
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        // Deleting the post
+        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Delete") { (action, index) in
+        }
+        delete.backgroundColor = UIColor.redColor()
+        // Detail of the posts
+        let detail = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Detail") { (action, index) in
+            let fectching = self.posts[index.row]
+            let data = try! fectching.locationFile!.getData()
+            let dataString = String(data: data, encoding: NSUTF8StringEncoding)
+                
+        }
+        detail.backgroundColor = UIColor.blueColor()
+        
+        return [delete, detail]
+    }
 }

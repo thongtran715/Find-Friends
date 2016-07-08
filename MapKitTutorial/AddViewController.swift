@@ -39,6 +39,7 @@ class AddViewController: UIViewController {
     }
     // Button Action
     @IBOutlet weak var doneOutlet: UIBarButtonItem!
+    
     @IBAction func DoneButton(sender: AnyObject) {
         let post = Post()
         post.name = topicTextField.text

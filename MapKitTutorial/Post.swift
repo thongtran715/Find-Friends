@@ -4,8 +4,6 @@ import Parse
 // 1
 class Post : PFObject, PFSubclassing {
     
-    // 2
-    @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
     @NSManaged var nameFile : PFFile?
     @NSManaged var locationFile : PFFile?
@@ -14,7 +12,6 @@ class Post : PFObject, PFSubclassing {
     var name : String!
     var location: String!
     var date : String!
-    var getImage : UIImage!
     //MARK: PFSubclassing Protocol
     
     // 3
@@ -81,26 +78,7 @@ class Post : PFObject, PFSubclassing {
                 UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
             }
         }
-        if let getImage = getImage {
-            
-            guard let imageData = UIImageJPEGRepresentation(getImage, 0.8) else {return}
-            guard let imageF = PFFile(name: "image.jpg", data: imageData) else {return}
-            
-            // any uploaded post should be associated with the current user
-            user = PFUser.currentUser()
-            self.imageFile = imageF
-            
-            // 1
-            waitingToUpload = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
-            
-            // 2
-            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-                // 3
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
-        }
+    
 }
     
     
