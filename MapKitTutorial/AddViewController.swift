@@ -11,14 +11,14 @@ import MapKit
 import Parse
 
 class AddViewController: UIViewController {
-    
+   
     var photoTaking : PhotoTakingHelper?
     var posts : Post?
     func takePhoto () {
         photoTaking = PhotoTakingHelper(viewCol: self, callBack: { (image) in
             
             if let image = image {
-            
+                
                 self.arrayOfImages.append(image)
             }
             
@@ -59,7 +59,6 @@ class AddViewController: UIViewController {
     }
     // Button Action
     @IBOutlet weak var doneOutlet: UIBarButtonItem!
-    
     @IBAction func DoneButton(sender: AnyObject) {
         let post = Post()
         post.name = topicTextField.text
@@ -72,9 +71,8 @@ class AddViewController: UIViewController {
             // adding image pointer to post
             imageHolderforPost.fromPost = post
             imageHolderforPost.uploadingPhoto()
-        
         }
-        
+ 
     }
     @IBAction func photoButton(sender: AnyObject) {
         takePhoto()
@@ -96,6 +94,18 @@ class AddViewController: UIViewController {
             self.addressTextField.text = "\(name), \(streetNumber) \(streetName), \n \(city), \(state), \(country)"
         }
         
+        
+    }
+    @IBAction func addPeople(sender: AnyObject) {
+        
+    }
+    
+
+    // Unwind the controller
+    @IBAction func unwindBackAddViewController(segue: UIStoryboardSegue) {
+        
+        // for now, simply defining the method is sufficient.
+        // we'll add code later
         
     }
 
@@ -121,9 +131,19 @@ class AddViewController: UIViewController {
             self.dateLabel.text = "\(date.convertToString())"
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PlusNote"
+        {
+            if let viewcol = segue.destinationViewController as? FriendSearchViewController
+            {
+               
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-          self.collectionView.dataSource = self
+        self.collectionView.dataSource = self
         scrollView.contentSize.height = 10000
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -251,4 +271,5 @@ extension AddViewController: UICollectionViewDataSource{
         
     }
 }
+
 

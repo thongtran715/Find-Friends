@@ -8,8 +8,11 @@
 
 import UIKit
 import Parse
-class MessageTableViewController: UITableViewController {
+import MapKit
 
+class MessageTableViewController: UITableViewController {
+    
+    
     var posts = [Post]()
    
     
@@ -102,14 +105,48 @@ class MessageTableViewController: UITableViewController {
         }
         delete.backgroundColor = UIColor.redColor()
         // Detail of the posts
-        let detail = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Detail") { (action, index) in
+        let navigate = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Go There") { (action, index) in
             let fectching = self.posts[index.row]
             let data = try! fectching.locationFile!.getData()
             let dataString = String(data: data, encoding: NSUTF8StringEncoding)
-                
+            var addressofString = dataString!.componentsSeparatedByString(", ")
+            addressofString.removeAtIndex(0)
+            let getaddress = addressofString.joinWithSeparator(", ")
+            let address = getaddress.stringByReplacingOccurrencesOfString("\n ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            print(address)
+            let geocoder = CLGeocoder()
+            
+            geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) in
+                if let placemark = placemarks!.first {
+                    
+                    let location = CLLocation(latitude: (placemark.location?.coordinate.latitude)!, longitude: (placemark.location?.coordinate.longitude)!)
+                            CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+                    
+                                if placemark?.count > 0
+                                {
+                                    let pinForAppleMaps = placemark![0] as CLPlacemark
+                                    print(pinForAppleMaps.subThoroughfare)
+                                    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pinForAppleMaps.location!.coordinate, addressDictionary: pinForAppleMaps.addressDictionary as! [String:AnyObject]?))
+                                    
+                                    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                                    mapItem.openInMapsWithLaunchOptions(launchOptions)
+                                }
+                            }
+                    
+                    //self.presentViewController(vc, animated: true, completion: nil)
+                  //self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                }
+            })
+            
+
         }
-        detail.backgroundColor = UIColor.blueColor()
+        navigate.backgroundColor = UIColor.greenColor()
         
-        return [delete, detail]
+        return [delete, navigate]
     }
 }
+
+
+
+
+

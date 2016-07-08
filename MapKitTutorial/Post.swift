@@ -8,6 +8,8 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var nameFile : PFFile?
     @NSManaged var locationFile : PFFile?
     @NSManaged var dateFile : PFFile?
+    @NSManaged var usersShare: PFUser?
+    
     var waitingToUpload: UIBackgroundTaskIdentifier?
     var name : String!
     var location: String!

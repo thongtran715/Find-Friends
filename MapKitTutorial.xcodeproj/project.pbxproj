@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4208DC361D2E41F2001882FA /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208DC351D2E41F2001882FA /* NSDate.swift */; };
-		421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BE1281D2EE2710040ACB3 /* Meeting.swift */; };
 		4232C4061D2F4BEF00539BA6 /* ImagesHolderForPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */; };
 		4232C4091D2F59AA00539BA6 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */; };
+		4232C40D1D3009AD00539BA6 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4232C40C1D3009AD00539BA6 /* test.xib */; };
+		4232C40F1D302A3B00539BA6 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C40E1D302A3B00539BA6 /* FriendSearchViewController.swift */; };
+		4232C4111D302A5D00539BA6 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4101D302A5D00539BA6 /* FriendSearchTableViewCell.swift */; };
+		4232C4131D302B3200539BA6 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4121D302B3200539BA6 /* ParseHelper.swift */; };
+		4232C4151D304A9700539BA6 /* userSharePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4232C4141D304A9700539BA6 /* userSharePost.swift */; };
 		423DF8CE1D2EED62007D4425 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CD1D2EED62007D4425 /* Post.swift */; };
 		423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */; };
 		426567E21D2DC94C00893DAF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426567E11D2DC94C00893DAF /* AddViewController.swift */; };
@@ -29,9 +33,13 @@
 
 /* Begin PBXFileReference section */
 		4208DC351D2E41F2001882FA /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
-		421BE1281D2EE2710040ACB3 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesHolderForPost.swift; sourceTree = "<group>"; };
 		4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4232C40C1D3009AD00539BA6 /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
+		4232C40E1D302A3B00539BA6 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
+		4232C4101D302A5D00539BA6 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		4232C4121D302B3200539BA6 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		4232C4141D304A9700539BA6 /* userSharePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSharePost.swift; sourceTree = "<group>"; };
 		423DF8CD1D2EED62007D4425 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		426567E11D2DC94C00893DAF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -77,12 +85,13 @@
 			children = (
 				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
 				423DF8CF1D2EFAFA007D4425 /* PhotoTakingHelper.swift */,
-				421BE1281D2EE2710040ACB3 /* Meeting.swift */,
 				4208DC351D2E41F2001882FA /* NSDate.swift */,
 				4299E0C21D2E02CB0085B960 /* DatePickerDialog.swift */,
 				42B6E2071D2DA92F00A5E679 /* MyAnnotation.swift */,
 				423DF8CD1D2EED62007D4425 /* Post.swift */,
 				4232C4051D2F4BEF00539BA6 /* ImagesHolderForPost.swift */,
+				4232C4121D302B3200539BA6 /* ParseHelper.swift */,
+				4232C4141D304A9700539BA6 /* userSharePost.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -95,6 +104,8 @@
 				42B6E2091D2DC70A00A5E679 /* MessageTableViewController.swift */,
 				426567E11D2DC94C00893DAF /* AddViewController.swift */,
 				4232C4081D2F59AA00539BA6 /* MessageTableViewCell.swift */,
+				4232C40E1D302A3B00539BA6 /* FriendSearchViewController.swift */,
+				4232C4101D302A5D00539BA6 /* FriendSearchTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -131,6 +142,7 @@
 			children = (
 				FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */,
 				FC1E247F1C2B10F5009E9908 /* Main.storyboard */,
+				4232C40C1D3009AD00539BA6 /* test.xib */,
 				42B6E20B1D2DC71400A5E679 /* Controller */,
 				FC1E24821C2B10F5009E9908 /* Assets.xcassets */,
 				FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */,
@@ -203,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1E24861C2B10F5009E9908 /* LaunchScreen.storyboard in Resources */,
+				4232C40D1D3009AD00539BA6 /* test.xib in Resources */,
 				FC1E24831C2B10F5009E9908 /* Assets.xcassets in Resources */,
 				FC1E24811C2B10F5009E9908 /* Main.storyboard in Resources */,
 			);
@@ -264,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
-				421BE1291D2EE2710040ACB3 /* Meeting.swift in Sources */,
+				4232C40F1D302A3B00539BA6 /* FriendSearchViewController.swift in Sources */,
 				42FC1B181D2F2420001C0666 /* CollectionViewCell.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
 				423DF8D01D2EFAFA007D4425 /* PhotoTakingHelper.swift in Sources */,
@@ -272,7 +285,10 @@
 				42B6E20A1D2DC70A00A5E679 /* MessageTableViewController.swift in Sources */,
 				4232C4091D2F59AA00539BA6 /* MessageTableViewCell.swift in Sources */,
 				4232C4061D2F4BEF00539BA6 /* ImagesHolderForPost.swift in Sources */,
+				4232C4131D302B3200539BA6 /* ParseHelper.swift in Sources */,
 				42B6E2081D2DA92F00A5E679 /* MyAnnotation.swift in Sources */,
+				4232C4151D304A9700539BA6 /* userSharePost.swift in Sources */,
+				4232C4111D302A5D00539BA6 /* FriendSearchTableViewCell.swift in Sources */,
 				4299E0C31D2E02CB0085B960 /* DatePickerDialog.swift in Sources */,
 				4208DC361D2E41F2001882FA /* NSDate.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
