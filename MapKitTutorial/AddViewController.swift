@@ -12,21 +12,23 @@ import Parse
 
 class AddViewController: UIViewController {
    
+    @IBOutlet var nameOfUsers: UILabel!
     var photoTaking : PhotoTakingHelper?
-    var posts : Post?
+    var arrayOfUsers = [PFUser]()
     func takePhoto () {
         photoTaking = PhotoTakingHelper(viewCol: self, callBack: { (image) in
             
             if let image = image {
-                
                 self.arrayOfImages.append(image)
+                
             }
             
         })
     }
-    
+    var arrayOfString = [String]()
     var arrayOfImages = [UIImage]() {
         didSet {
+           
            collectionView.reloadData()
         }
     }
@@ -34,24 +36,7 @@ class AddViewController: UIViewController {
     @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var topicTextField:UITextField!
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-     infoTextView.text = ""
-        
-//        if let posts = posts {
-//            topicTextField.text = posts.name
-//            dateLabel.text = posts.date
-//            addressTextField.text = posts.location
-//        }
-//        else {
-//            topicTextField.text = ""
-//            dateLabel.text = ""
-//            addressTextField.text = ""
-//        }
-        
-    }
-    
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
@@ -64,17 +49,31 @@ class AddViewController: UIViewController {
         post.name = topicTextField.text
         post.location = addressTextField.text
         post.date = dateLabel.text
-        post.uploadFile()
-        for image in arrayOfImages {
-           let imageHolderforPost = imageHolder()
-            imageHolderforPost.getImage = image
-            // adding image pointer to post
-            imageHolderforPost.fromPost = post
-            imageHolderforPost.uploadingPhoto()
+        post.uploadFile { (success) in
+            
+            if success {
+                for image in self.arrayOfImages {
+                    let imageHolderforPost = imageHolder()
+                    imageHolderforPost.getImage = image
+                    // adding image pointer to post
+                    imageHolderforPost.fromPost = post
+                    imageHolderforPost.uploadingPhoto()
+                }
+                for name in self.arrayOfUsers {
+                    let getPostandUsersLinked = UserSharePost()
+                    getPostandUsersLinked.fromPost = post
+                    getPostandUsersLinked.toUser = name
+                    getPostandUsersLinked.saveInBackgroundWithBlock(nil)
+                }
+            }
         }
- 
     }
     @IBAction func photoButton(sender: AnyObject) {
+        if arrayOfImages.contains(UIImage(named: "noImageAvailable")!)
+        {
+            arrayOfImages.removeAtIndex(0)
+        }
+
         takePhoto()
     }
     @IBAction func pinAddress(sender: AnyObject) {
@@ -131,18 +130,9 @@ class AddViewController: UIViewController {
             self.dateLabel.text = "\(date.convertToString())"
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "PlusNote"
-        {
-            if let viewcol = segue.destinationViewController as? FriendSearchViewController
-            {
-               
-            }
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        arrayOfImages.append(UIImage(named: "noImageAvailable")!)
         self.collectionView.dataSource = self
         scrollView.contentSize.height = 10000
         locationManager.delegate = self

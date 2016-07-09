@@ -3,7 +3,7 @@
 import Foundation
 import Parse
 
-class userSharePost : PFObject, PFSubclassing {
+class UserSharePost : PFObject, PFSubclassing {
     
     @NSManaged var toUser : PFUser?
     @NSManaged var fromPost: PFObject?

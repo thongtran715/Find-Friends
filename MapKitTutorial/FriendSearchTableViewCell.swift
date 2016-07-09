@@ -19,6 +19,7 @@ class FriendSearchTableViewCell: UITableViewCell {
         }
         else
         {
+            delegate?.cell(self, didSelectUnfollowUser: user!)
             self.canAdd = true
         }
         

@@ -14,7 +14,7 @@ class MessageTableViewController: UITableViewController {
     
     
     var posts = [Post]()
-   
+    var postId = [String]()
     
     
     override func viewDidAppear(animated: Bool) {
@@ -22,7 +22,13 @@ class MessageTableViewController: UITableViewController {
         let postsFromThisUser = Post.query()
         postsFromThisUser!.whereKey("user", equalTo: PFUser.currentUser()!)
         
-        let query = PFQuery.orQueryWithSubqueries([postsFromThisUser!])
+        let getData = PFQuery(className: "userShare")
+        getData.whereKey("fromPost", equalTo: PFUser.currentUser()!)
+        
+        let getPosts = Post.query()
+        getPosts?.whereKey("user", matchesKey: "objectId", inQuery: getData)
+        
+        let query = PFQuery.orQueryWithSubqueries([ getPosts!])
         // 5
         query.includeKey("user")
         // 6
@@ -34,25 +40,25 @@ class MessageTableViewController: UITableViewController {
             self.posts = result as? [Post] ?? []
             // 9
             
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-          
+            
+            self.tableView.reloadData()
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-
-
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return posts.count
@@ -120,30 +126,34 @@ class MessageTableViewController: UITableViewController {
                 if let placemark = placemarks!.first {
                     
                     let location = CLLocation(latitude: (placemark.location?.coordinate.latitude)!, longitude: (placemark.location?.coordinate.longitude)!)
-                            CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+                    CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+                        
+                        if placemark?.count > 0
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                let pinForAppleMaps = placemark![0] as CLPlacemark
+                                print(pinForAppleMaps.subThoroughfare)
+                                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pinForAppleMaps.location!.coordinate, addressDictionary: pinForAppleMaps.addressDictionary as! [String:AnyObject]?))
+                                
+                                let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                                mapItem.openInMapsWithLaunchOptions(launchOptions)
+                            })
+                        }
+                    }
                     
-                                if placemark?.count > 0
-                                {
-                                    let pinForAppleMaps = placemark![0] as CLPlacemark
-                                    print(pinForAppleMaps.subThoroughfare)
-                                    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: pinForAppleMaps.location!.coordinate, addressDictionary: pinForAppleMaps.addressDictionary as! [String:AnyObject]?))
-                                    
-                                    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-                                    mapItem.openInMapsWithLaunchOptions(launchOptions)
-                                }
-                            }
                     
                     //self.presentViewController(vc, animated: true, completion: nil)
-                  //self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                    //self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
                 }
             })
             
-
+            
         }
         navigate.backgroundColor = UIColor.greenColor()
         
         return [delete, navigate]
     }
+    
 }
 
 

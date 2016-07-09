@@ -14,6 +14,7 @@ protocol FriendSearchTableViewCellDelegate: class {
 }
 class FriendSearchViewController: UIViewController {
 
+    var stringName  = [PFUser]()
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var post: Post? 
@@ -97,19 +98,41 @@ extension FriendSearchViewController: UISearchBarDelegate {
         ParseHelper.searchUsers(searchText, completionBlock:updateList)
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Back"
+        {
+            var array = [String]()
+            for user in stringName
+            {
+                array.append(user.username!)
+            }
+            let name = array.joinWithSeparator(", ")
+            if let viewCol = segue.destinationViewController as? AddViewController
+            {
+                viewCol.nameOfUsers.text = name
+                viewCol.arrayOfUsers = stringName
+            }
+        }
+    }
+    
+    
+    
+    
+    
 }
 
 
 extension FriendSearchViewController: FriendSearchTableViewCellDelegate {
     
     func cell(cell: FriendSearchTableViewCell, didSelectFollowUser user: PFUser) {
-        ParseHelper.setParseRelationshipBetweenUsers(post!, userShare: user)
-       
+        //ParseHelper.setParseRelationshipBetweenUsers(post!, userShare: user)
+        stringName.append(user)
     }
     
     func cell(cell: FriendSearchTableViewCell, didSelectUnfollowUser user: PFUser)
     {
-        
+        stringName.removeLast()
         
     }
 

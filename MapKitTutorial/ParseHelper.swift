@@ -39,14 +39,7 @@ class ParseHelper {
         
         return query
     }
-    
-    static func setParseRelationshipBetweenUsers(post: PFObject, userShare: PFUser)
-    {
-        let getShareUsers = userSharePost()
-        getShareUsers.setObject(post, forKey: "fromPost")
-        getShareUsers.setObject(userShare, forKey: "toUser")
-        getShareUsers.saveInBackgroundWithBlock(nil)
-    }
+
     
     
     

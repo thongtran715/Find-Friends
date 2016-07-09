@@ -34,12 +34,19 @@ class Post : PFObject, PFSubclassing {
         }
     }
     
-    func uploadFile() {
-        
-        if let name = name {
-            guard let data = name.dataUsingEncoding(NSUTF8StringEncoding) else {return }
-            guard let file = PFFile(name:"TopicName.txt", data:data) else {return }
-            self.nameFile = file
+    func uploadFile(completion: (success:Bool) -> Void) {
+        if let name = name,  location = location, date = date  {
+            guard let dataOfName = name.dataUsingEncoding(NSUTF8StringEncoding) else {return }
+            guard let fileOfName = PFFile(name:"TopicName.txt", data:dataOfName) else {return }
+            
+            guard let dataOfDate = date.dataUsingEncoding(NSUTF8StringEncoding) else {return }
+            guard let fileOfDate = PFFile(name:"date.txt", data:dataOfDate) else {return }
+            guard let dataOFLocation = location.dataUsingEncoding(NSUTF8StringEncoding) else {return }
+            guard let fileOfLocation = PFFile(name:"LocationName.txt", data:dataOFLocation) else {return }
+            self.nameFile = fileOfName
+             self.locationFile = fileOfLocation
+            self.dateFile = fileOfDate
+
             user = PFUser.currentUser()
             waitingToUpload = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
@@ -47,38 +54,9 @@ class Post : PFObject, PFSubclassing {
             saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
                 // 3
                 UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
+                completion(success: success)
             }
 
-            saveInBackgroundWithBlock(nil)
-        }
-        if let location = location
-        {
-            
-            guard let data = location.dataUsingEncoding(NSUTF8StringEncoding) else {return }
-            guard let file = PFFile(name:"LocationName.txt", data:data) else {return }
-            self.locationFile = file
-            user = PFUser.currentUser()
-            waitingToUpload = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
-            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-                // 3
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
-        }
-        if let date = date {
-            
-            guard let data = date.dataUsingEncoding(NSUTF8StringEncoding) else {return }
-            guard let file = PFFile(name:"date.txt", data:data) else {return }
-            self.dateFile = file
-            user = PFUser.currentUser()
-            waitingToUpload = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
-            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-                // 3
-                UIApplication.sharedApplication().endBackgroundTask(self.waitingToUpload!)
-            }
         }
     
 }
